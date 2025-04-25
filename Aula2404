@@ -1,0 +1,318 @@
+package Aula2404;
+
+/**
+ *
+ * @author 03020975
+ */
+public class Listacompras {
+    private String[] itens;
+    private int tamanho;
+    
+    public Listacompras()
+    {
+        this.itens = new String[10];
+        this.tamanho = 0;
+    }
+    
+    public void adicionarItem(String item)
+    {
+        if (tamanho < itens.length)
+        {
+            itens[tamanho] = item;
+            tamanho++;
+        }
+        else
+        {
+            System.out.println(" A lista está cheia. Não é possivel adicionar mais itens.");
+        }
+    }
+    
+    public static void main(String[] args) {
+        Listacompras lista = new Listacompras();
+        
+        lista.adicionarItem("Arroz");
+        lista.adicionarItem("Feijão");
+        lista.adicionarItem("Maçãs");
+        lista.adicionarItem("Sabonete");
+        lista.adicionarItem("Detergente");
+        lista.exibirLista();
+        lista.removerItem();
+        lista.exibirLista();
+    }
+
+    public void removerItem() 
+    {
+        if (tamanho > 0) 
+        {
+            tamanho--; // "remove" o último item apenas reduzindo o tamanho
+            System.out.println("Item removido: " + itens[tamanho]);
+            itens[tamanho] = null; // opcional, para limpar o espaço
+        } else 
+        {
+            System.out.println("A lista está vazia. Nenhum item para remover.");
+        }
+    }
+
+    public void exibirLista()
+    {
+        if (tamanho == 0) 
+        {
+            System.out.println("A lista está vazia.");
+        } else 
+        {
+            System.out.println("Itens na lista:");
+            for (int i = 0; i < tamanho; i++) 
+            {
+                System.out.println((i + 1) + ". " + itens[i]);
+            }
+        }
+    }
+
+        
+}
+
+
+package Aula2404;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author 03020975
+ */
+public class ListaCompraDinamica {
+    private List<String> itens;
+    
+    public ListaCompraDinamica()
+    {
+        this.itens = new ArrayList<>();
+    }
+    public void adicionarItem(String item)
+    {
+        itens.add(item);
+    }
+    
+    public static void main(String[] args) {
+        ListaCompraDinamica lista = new ListaCompraDinamica();
+        
+        lista.adicionarItem("Arroz");
+        lista.adicionarItem("Feijão");
+        lista.adicionarItem("Maçãs");
+        lista.adicionarItem("Sabonete");
+        lista.adicionarItem("Detergente");
+        lista.exibirLista();
+        lista.removerItem();
+        lista.exibirLista();
+           
+    }
+    
+}
+
+
+package Aula2404;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author 03020975
+ */
+public class ListaComprasDinamica {
+    public class ListaCompraDinamica {
+    private List<String> itens;
+    
+    public ListaCompraDinamica() {
+        this.itens = new ArrayList<>();
+    }
+
+    public void adicionarItem(String item) {
+        itens.add(item);
+    }
+
+    public void removerItem() {
+        if (!itens.isEmpty()) {
+            itens.remove(itens.size() - 1); // remove o último item
+        }
+    }
+
+    public void exibirLista() {
+        for (String item : itens) {
+            System.out.println(item);
+        }
+    }
+
+    public static void main(String[] args) {
+        ListaCompraDinamica lista = new ListaCompraDinamica();
+        
+        lista.adicionarItem("Arroz");
+        lista.adicionarItem("Feijão");
+        lista.adicionarItem("Maçãs");
+        lista.adicionarItem("Sabonete");
+        lista.adicionarItem("Detergente");
+        
+        lista.exibirLista();   // exibe todos os itens
+        lista.removerItem();   // remove o último
+        System.out.println("Após remover o último item:");
+        lista.exibirLista();   // exibe de novo
+    }
+}
+    
+}
+
+
+GPT
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author 03020975
+ */
+public class ListaCompraDinamica {
+    private List<String> itens;
+
+    public ListaCompraDinamica() {
+        this.itens = new ArrayList<>();
+    }
+
+    public void adicionarItem(String item) {
+        itens.add(item);
+    }
+
+    public void removerItem() {
+        if (!itens.isEmpty()) {
+            // Remove o último item adicionado
+            String removido = itens.remove(itens.size() - 1);
+            System.out.println("Item removido: " + removido);
+        } else {
+            System.out.println("A lista está vazia. Nenhum item para remover.");
+        }
+    }
+
+    public void exibirLista() {
+        if (itens.isEmpty()) {
+            System.out.println("A lista está vazia.");
+        } else {
+            System.out.println("Itens na lista de compras:");
+            for (int i = 0; i < itens.size(); i++) {
+                System.out.println((i + 1) + ". " + itens.get(i));
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        ListaCompraDinamica lista = new ListaCompraDinamica();
+
+        lista.adicionarItem("Arroz");
+        lista.adicionarItem("Feijão");
+        lista.adicionarItem("Maçãs");
+        lista.adicionarItem("Sabonete");
+        lista.adicionarItem("Detergente");
+
+        lista.exibirLista();
+
+        lista.removerItem();
+
+        lista.exibirLista();
+    }
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author 03020975
+ */
+public class ListaCompraDinamica {
+    private List<String> itens;
+    
+    public ListaCompraDinamica() {
+        this.itens = new ArrayList<>();
+    }
+
+    public void adicionarItem(String item) {
+        itens.add(item);
+    }
+
+    public void removerItem() {
+        if (!itens.isEmpty()) {
+            itens.remove(itens.size() - 1); // remove o último item
+        }
+    }
+
+    public void exibirLista() {
+        for (String item : itens) {
+            System.out.println(item);
+        }
+    }
+
+    public static void main(String[] args) {
+        ListaCompraDinamica lista = new ListaCompraDinamica();
+        
+        lista.adicionarItem("Arroz");
+        lista.adicionarItem("Feijão");
+        lista.adicionarItem("Maçãs");
+        lista.adicionarItem("Sabonete");
+        lista.adicionarItem("Detergente");
+        
+        lista.exibirLista();   // exibe todos os itens
+        lista.removerItem();   // remove o último
+        System.out.println("Após remover o último item:");
+        lista.exibirLista();   // exibe de novo
+    }
+}
+
+public class Listacompras {
+    private String[] itens;
+    private int tamanho;
+    
+    public Listacompras() {
+        this.itens = new String[10];
+        this.tamanho = 0;
+    }
+
+    public void adicionarItem(String item) {
+        if (tamanho < itens.length) {
+            itens[tamanho] = item;
+            tamanho++;
+        } else {
+            System.out.println("A lista está cheia. Não é possível adicionar mais itens.");
+        }
+    }
+
+    public void removerItem() {
+        if (tamanho > 0) {
+            tamanho--; // "remove" o último item apenas reduzindo o tamanho
+            System.out.println("Item removido: " + itens[tamanho]);
+            itens[tamanho] = null; // opcional, para limpar o espaço
+        } else {
+            System.out.println("A lista está vazia. Nenhum item para remover.");
+        }
+    }
+
+    public void exibirLista() {
+        if (tamanho == 0) {
+            System.out.println("A lista está vazia.");
+        } else {
+            System.out.println("Itens na lista:");
+            for (int i = 0; i < tamanho; i++) {
+                System.out.println((i + 1) + ". " + itens[i]);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Listacompras lista = new Listacompras();
+        
+        lista.adicionarItem("Arroz");
+        lista.adicionarItem("Feijão");
+        lista.adicionarItem("Maçãs");
+        lista.adicionarItem("Sabonete");
+        lista.adicionarItem("Detergente");
+        
+        lista.exibirLista();
+        lista.removerItem();
+        lista.exibirLista();
+    }
+}
