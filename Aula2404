@@ -109,7 +109,7 @@ public class ListaComprasEstatica {
 }
 
 
-
+Redimensionamento do array 
 Para transformar o seu código em uma lista de compras dinâmica simples, precisamos implementar o redimensionamento do array 
 quando ele estiver cheio. O código atualizado incluirá essa funcionalidade e simplificará algumas partes. Veja como fica:
 
