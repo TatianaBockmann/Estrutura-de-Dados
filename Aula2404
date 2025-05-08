@@ -229,6 +229,16 @@ da alocação de memória automaticamente, então não precisamos nos preocupar 
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Tatiana
+ */
 public class ListaComprasDinamica {
     private ArrayList<String> itens; // Lista de itens
 
@@ -239,19 +249,19 @@ public class ListaComprasDinamica {
 
     // Método principal para testar a classe
     public static void main(String[] args) {
-        ListaComprasDinamica lista = new ListaComprasDinamica(); // Cria uma nova lista de compras
+        ListaComprasDinamica lista = new ListaComprasDinamica(); 
         Scanner ler = new Scanner(System.in);
         int opcao;
 
         do {
             System.out.println("\nMenu:");
             System.out.println("1. Adicionar item");
-            System.out.println("2. Remover último item");
+            System.out.println("2. Remover primeiro item");
             System.out.println("3. Exibir lista");
             System.out.println("4. Sair");
             System.out.print("Escolha uma opção: ");
             opcao = ler.nextInt();
-            ler.nextLine(); // Consumir a nova linha
+            ler.nextLine(); 
 
             switch (opcao) {
                 case 1:
@@ -275,21 +285,21 @@ public class ListaComprasDinamica {
     }
 
     // Método para exibir a lista
-    private void exibirLista() {
+    void exibirLista() {
         if (itens.isEmpty()) {
             System.out.println("A lista está vazia.");
         } else {
             System.out.println("Itens na lista:");
             for (int i = 0; i < itens.size(); i++) {
-                System.out.println((i + 1) + ". " + itens.get(i)); // Usando get para acessar os itens
+                System.out.println((i + 1) + ". " + itens.get(i)); //  get para acessar os itens
             }
         }
     }
 
-    // Método para remover o último item
-    private void removerItem() {
-        if (!itens.isEmpty()) {
-            String itemRemovido = itens.remove(itens.size() - 1); // Remove o último item
+    // Método para remover o primeiro item
+    void removerItem() {
+         if (!itens.isEmpty()) {
+            String itemRemovido = itens.remove(0); // Remove o primeiro item
             System.out.println("Item removido: " + itemRemovido);
         } else {
             System.out.println("A lista está vazia. Nenhum item para remover.");
@@ -297,7 +307,7 @@ public class ListaComprasDinamica {
     }
 
     // Método para adicionar um item
-    private void adicionarItem(Scanner ler) {
+    void adicionarItem(Scanner ler) {
         System.out.print("Digite o item a ser adicionado: ");
         String item = ler.nextLine(); // Lê o item do usuário
         itens.add(item); // Adiciona o item à lista
