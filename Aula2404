@@ -1,75 +1,113 @@
-package Aula2404;
+import java.util.Scanner;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
 /**
  *
- * @author 03020975
+ * @author Tatiana
  */
-public class Listacompras {
+public class ListaComprasEstatica {
     private String[] itens;
     private int tamanho;
-    
-    public Listacompras()
+    //Construtor da classe ListaComprasEstatica
+    public ListaComprasEstatica()
     {
         this.itens = new String[10];
         this.tamanho = 0;
     }
+        
+    //Método principal para testar a classe ListaComprasEstatica
+    public static void main(String[] args) {
+        ListaComprasEstatica lista = new ListaComprasEstatica();//Cria uma nova lista de compras
+        Scanner ler = new Scanner(System.in);
+        int opcao;
+
+        do {
+            System.out.println("\nMenu:");
+            System.out.println("1. Adicionar item");
+            System.out.println("2. Remover último item");
+            System.out.println("3. Exibir lista");
+            System.out.println("4. Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = ler.nextInt();
+            ler.nextLine(); // Consumir a nova linha
+
+            switch (opcao) {
+                case 1:
+                    lista.adicionarItem();
+                    break;
+                case 2:
+                    lista.removerItem();
+                    break;
+                case 3:
+                    lista.exibirLista();
+                    break;
+                case 4:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        } while (opcao != 4);
+
+        ler.close();
     
-    public void adicionarItem(String item)
+    }
+
+    private void exibirLista() 
     {
-        if (tamanho < itens.length)
+        if(tamanho == 0)
         {
-            itens[tamanho] = item;
-            tamanho++;
+            System.out.println(" A lista está vazia.");
         }
         else
         {
-            System.out.println(" A lista está cheia. Não é possivel adicionar mais itens.");
-        }
-    }
-    
-    public static void main(String[] args) {
-        Listacompras lista = new Listacompras();
-        
-        lista.adicionarItem("Arroz");
-        lista.adicionarItem("Feijão");
-        lista.adicionarItem("Maçãs");
-        lista.adicionarItem("Sabonete");
-        lista.adicionarItem("Detergente");
-        lista.exibirLista();
-        lista.removerItem();
-        lista.exibirLista();
-    }
-
-    public void removerItem() 
-    {
-        if (tamanho > 0) 
-        {
-            tamanho--; // "remove" o último item apenas reduzindo o tamanho
-            System.out.println("Item removido: " + itens[tamanho]);
-            itens[tamanho] = null; // opcional, para limpar o espaço
-        } else 
-        {
-            System.out.println("A lista está vazia. Nenhum item para remover.");
-        }
-    }
-
-    public void exibirLista()
-    {
-        if (tamanho == 0) 
-        {
-            System.out.println("A lista está vazia.");
-        } else 
-        {
-            System.out.println("Itens na lista:");
-            for (int i = 0; i < tamanho; i++) 
+            System.out.println(" Itens na lista:");
+            for(int i = 0; i < tamanho; i++)
             {
-                System.out.println((i + 1) + ". " + itens[i]);
+                System.out.println((i + 1 + "." + itens[i]));
             }
         }
     }
 
+    private void removerItem() 
+    {
+        if(tamanho > 0)
+        {
+            tamanho--; //Remove o último item
+            System.out.println(" Item removido: " + itens[tamanho]);
+            itens[tamanho] = null;//opcional, para limpar espaço
+        }
+        else
+        {
+            System.out.println(" A lista está vazia. Nenhum item para remover.");
+        }
         
+    }
+
+    private void adicionarItem() 
+    {
+    if (tamanho < itens.length) 
+    {
+        Scanner ler = new Scanner(System.in);
+        System.out.print("Digite o item a ser adicionado: ");
+        String item = ler.nextLine(); 
+
+        itens[tamanho] = item; // Adiciona o item ao final da lista
+        tamanho++; // Aumenta o tamanho da lista
+        System.out.println("Item adicionado: " + item);
+    } else 
+    {
+        System.out.println("A lista está cheia. Não é possível adicionar mais itens.");
+        
+    }
 }
+}
+
 
 
 package Aula2404;
