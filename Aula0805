@@ -1,0 +1,46 @@
+package Aula0805;
+
+/**
+ *
+ * @author 03020975
+ */
+public class OrdenacaoBubbleSort 
+{
+    public static void main(String[] args) 
+    {
+        int[] vetor = {7, 5,10, 3, 4};
+        int aux;
+        System.out.println(" Bubble Sort");
+        
+        System.out.println(" Vetor original");
+        for(int i = 0; i < vetor.length; i++)
+        {
+            System.out.println(" Posicao[" + i + "] = " + vetor[i]);
+                 
+        }
+        for (int i = 0; i < vetor.length - 1; i++) 
+        {
+            for(int j = 0; j < vetor.length - 1; j++)
+            {
+                if (vetor[j] > vetor[j+1])
+                {
+                    //Troca os elementos
+                    aux = vetor[j];
+                    vetor[j] = vetor[j+1];
+                    vetor[j + 1] = aux;
+           
+                }
+                    
+            }
+        }
+        
+        //Exibir o vetor ordenado
+        System.out.println(" Vetor ordenado");
+        for(int i = 0; i < vetor.length; i++)
+        {
+            System.out.println(" Posicao[" + i + "] = " + vetor[i]);
+        }
+        
+    }
+    
+}
