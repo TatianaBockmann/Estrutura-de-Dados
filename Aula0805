@@ -30,7 +30,7 @@ public class OrdenacaoBubbleSort
                     vetor[j + 1] = aux;
            
                 }
-                    
+                  //System.out.println(" Posicao[" + i + "] = " + vetor[i]);  
             }
         }
         
