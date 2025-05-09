@@ -18,7 +18,9 @@ public class OrdenacaoBubbleSort
             System.out.println(" Posicao[" + i + "] = " + vetor[i]);
                  
         }
-        for (int i = 0; i < vetor.length //- 1; i++) 
+        
+        System.out.println("passos");
+        for (int i = 0; i < vetor.length; i++) 
         {
             for(int j = 0; j < vetor.length - 1; j++)
             {
@@ -30,8 +32,14 @@ public class OrdenacaoBubbleSort
                     vetor[j + 1] = aux;
            
                 }
-                  //System.out.println(" Posicao[" + i + "] = " + vetor[i]);  
+                                    
             }
+            System.out.print("Passo " + (i + 1) + " - ");
+            for(int j = 0; j < vetor.length; j++)
+            {
+                System.out.print(vetor[j] + "  ");
+            }
+            System.out.println("");
         }
         
         //Exibir o vetor ordenado
@@ -41,6 +49,8 @@ public class OrdenacaoBubbleSort
             System.out.println(" Posicao[" + i + "] = " + vetor[i]);
         }
         
+        
     }
     
 }
+
