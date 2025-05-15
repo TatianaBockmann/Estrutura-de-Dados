@@ -1,39 +1,75 @@
-package Aula0805;
+BUBBLE SORT
+1.
+A ideia do Bubble Sort é comparar pares de elementos adjacentes e trocar suas posições se estiverem fora de ordem. A cada 
+passagem pelo vetor, o maior valor vai "subindo" para o final, como uma bolha na água — daí o nome bubble.
 
-/**
- *
- * @author 03020975
- */
-public class OrdenacaoBubbleSort 
-{
+2.
+Para isso, usamos dois laços aninhados:
+
+O primeiro laço (i) representa o número de passagens completas pelo vetor.
+A cada nova passagem, o algoritmo garante que mais um elemento está na posição correta, no final do vetor.
+
+O segundo laço (j) percorre os elementos ainda desordenados e compara o valor atual com o próximo (vetor[j] com vetor[j+1]).
+Se estiverem na ordem errada (o da esquerda for maior que o da direita), o algoritmo troca os dois de posição.
+
+3.
+Depois de cada passagem do laço interno, o maior valor restante já está posicionado corretamente no final do vetor.
+Esse processo se repete até que o vetor inteiro esteja ordenado.
+
+💡 Resumo visual do processo:
+
+Primeira passagem → o maior valor vai para o final.
+
+Segunda passagem → o segundo maior vai para a penúltima posição.
+
+E assim por diante, até tudo estar ordenado.
+        
+        
+    }
+    
+}
+
+int[] vetor =  {7, 5, 10, 3, 4};
+passos
+Passo 1 - 5  7  3  4  10  
+Passo 2 - 5  3  4  7  10  
+Passo 3 - 3  4  5  7  10  
+Passo 4 - 3  4  5  7  10  
+Passo 5 - 3  4  5  7  10  
+
+public class OrdenacaoBubbleSort {
     public static void main(String[] args) 
     {
         int[] vetor = {7, 5,10, 3, 4};
-        int aux;
-        System.out.println(" Bubble Sort");
+        int temp; // Variável auxiliar para troca de valores
+        System.out.println("\nBubble Sort");
         
-        System.out.println(" Vetor original");
+        System.out.println("\nVetor original");
         for(int i = 0; i < vetor.length; i++)
         {
             System.out.println(" Posicao[" + i + "] = " + vetor[i]);
                  
         }
         
-        System.out.println("passos");
+        System.out.println("\n passos");
+        // Laço externo: controla o número de "passadas"
         for (int i = 0; i < vetor.length; i++) 
         {
+             // Laço interno: compara pares de elementos adjacentes
             for(int j = 0; j < vetor.length - 1; j++)
             {
+                // Se o valor atual for maior que o próximo, troca
                 if (vetor[j] > vetor[j+1])
                 {
-                    //Troca os elementos
-                    aux = vetor[j];
+                    //Troca os elementos de lugar
+                    temp = vetor[j];
                     vetor[j] = vetor[j+1];
-                    vetor[j + 1] = aux;
+                    vetor[j + 1] = temp;
            
                 }
                                     
             }
+            // Exibe o vetor após cada passo completo
             System.out.print("Passo " + (i + 1) + " - ");
             for(int j = 0; j < vetor.length; j++)
             {
@@ -42,38 +78,48 @@ public class OrdenacaoBubbleSort
             System.out.println("");
         }
         
-        //Exibir o vetor ordenado
-        System.out.println(" Vetor ordenado");
+        
+        System.out.println("\n Vetor ordenado");
         for(int i = 0; i < vetor.length; i++)
         {
             System.out.println(" Posicao[" + i + "] = " + vetor[i]);
         }
-        
-        
-    }
+    
+    } 
     
 }
 
+SELECTION SORT
+
+Explicação passo a passo (em português simples):
+1.	A ideia do Selection Sort é encontrar o menor elemento do vetor e colocá-lo na primeira posição, depois encontrar o segundo
+menor e colocá-lo na segunda posição, e assim por diante.
+
+2.	Para isso, percorremos o vetor com dois laços:
+o	O primeiro laço (i) controla a posição atual onde vamos colocar o menor valor.
+o	O segundo laço (j) procura o menor valor entre os elementos restantes.
+3.	Depois de encontrar o menor valor, trocamos com o valor da posição i.
+________________________________________
+
+1.	O for (int i = 1; i < vetor.length - 1; i++) deveria começar de i = 0, não de i = 1, pois o Selection Sort começa do 
+primeiro elemento.
+2.	O loop de exibição dos passos imprime apenas parte do vetor, não o vetor inteiro, o que pode gerar confusão.
+3.	O trecho menor = vetor[indice]; depois do for interno é redundante — já foi feito dentro do if.
+4.	Comentários e identação podem ser melhor organizados.
+________________________________________
+int[] vetor =  {7, 5, 10, 3, 4};
+passos da ordenação
+Passo 1 - 3  5  10  7  4   
+Passo 2 - 3  4  10  7  5   
+Passo 3 - 3  4  5  7  10   
+Passo 4 - 3  4  5  7  10   
 
 
-
-
-
-
-
-
-package Aula0805;
-
-/**
- *
- * @author 03020975
- */
 public class OrdenacaoSelectionSort {
- public static void main(String[] args) 
+    public static void main(String[] args) 
     {
         int[] vetor = {7, 5,10, 3, 4};
-        int aux;
-        System.out.println(" Selection Sort");
+        System.out.println(" Selection Sort\n");
         
         System.out.println(" Vetor original");
         for(int i = 0; i < vetor.length; i++)
@@ -83,46 +129,136 @@ public class OrdenacaoSelectionSort {
                  
         }
         
-        System.out.println("passos");
-        for (int i = 1; i < vetor.length - 1; i++) 
+        System.out.println("\npassos da ordenação");
+        // Laço externo percorre o vetor até a penúltima posição
+        for (int i = 0; i < vetor.length - 1; i++) 
         {
+            // Assume que o menor valor está na posição atual
             int menor = vetor[i];
             int indice = i;
-            for(int j = i + 1; j < vetor.length - 1; j++)
+
+            // Laço interno procura o menor elemento à frente da posição i
+            for(int j = i + 1; j < vetor.length; j++)
             {
                 if (vetor[j] < menor)
                 {
-                    //Troca os elementos
+                   // Atualiza o menor valor e sua posição
                     menor = vetor[j];
                     indice = j;
                                
                 }
                                     
             }
-            menor = vetor[indice];
-            vetor[indice] = vetor[i];
-            vetor[i] = menor;
+            // Troca o menor valor encontrado com o valor da posição atual (i)
+            menor = vetor[indice]; // redundante, pois menor já tem esse valor
+            vetor[indice] = vetor[i]; // move o valor atual para a posição do menor
+            vetor[i] = menor; // coloca o menor na posição atual
             
             
-            
+            // Exibe o vetor após cada passo da ordenação
             System.out.print("Passo " + (i + 1) + " - ");
             for(int j = 0; j < vetor.length; j++)
             {
                 System.out.print(vetor[j] + "  ");
             }
-            System.out.println("");
+            System.out.println(" ");
         }
         
-        //Exibir o vetor ordenado
-        System.out.println(" Vetor ordenado");
+      
+        System.out.println("\n Vetor ordenado");
         for(int i = 0; i < vetor.length; i++)
         {
             System.out.println(" Posicao[" + i + "] = " + vetor[i]);
-        }
-        
-        
-    }
-    
+        }     
+    }   
 }
 
+INSERT SORT
 
+1.
+A ideia do Insertion Sort é percorrer o vetor e, a cada elemento, inseri-lo na posição correta entre os elementos já ordenados à esquerda.
+Ou seja, o algoritmo vai construindo uma parte ordenada do vetor à medida que avança.
+
+2.
+Para isso, usamos dois controles:
+
+O primeiro laço (i) percorre o vetor a partir do segundo elemento (índice 1), pois o primeiro elemento sozinho já é considerado 
+ordenado.
+
+Uma variável auxiliar (j) percorre a parte ordenada (à esquerda de i) de trás para frente, comparando os elementos com o valor 
+atual (o "eleito").
+
+Se os elementos da parte ordenada forem maiores que o eleito, eles são deslocados uma posição para a direita, abrindo espaço 
+para o eleito.
+
+3.
+Quando encontramos a posição correta, inserimos o valor eleito, completando a ordenação daquela parte do vetor.
+Esse processo se repete até o vetor inteiro estar ordenado.
+
+💡 Resumo visual do processo:
+
+Pega um elemento da parte não ordenada.
+
+Compara com os anteriores.
+
+Move os maiores para frente.
+
+Insere o elemento no local certo.
+
+int[] vetor =  {7, 5, 10, 3, 4};
+Passos da ordenação
+Passo 1 - 
+5 7 10 3 4  
+Passo 2 - 
+5 7 10 3 4  
+Passo 3 - 
+3 5 7 10 4  
+Passo 4 - 
+3 4 5 7 10  
+
+public class OrdenacaoInsertSort { 
+public static void main(String[] args) 
+    {
+        int[] vetor =  {7, 5, 10, 3, 4};
+        System.out.println(" Insert Sort\n");
+        
+        
+        System.out.println("\nVetor Original");
+        for(int i = 0; i < vetor.length; i++)
+        {
+            System.out.println(" Posição[" + i + "] = " + vetor[i]);
+        }
+
+        // Início do algoritmo Insertion Sort
+        System.out.println("\nPassos da ordenação");
+
+        // Começa da posição 1 (o primeiro elemento já está "ordenado")
+        for(int i = 1; i < vetor.length; i++)
+        {
+            int eleito = vetor[i]; // Elemento que será inserido na posição correta
+            int j = i - 1;
+
+             // Move os elementos maiores que o "eleito" para a direita
+            while (j >= 0 && vetor[j] > eleito)
+            {
+                vetor[j + 1] = vetor[j];
+                j = j - 1;
+            }
+            // Insere o "eleito" na posição correta
+            vetor[j + 1] = eleito; 
+        
+            System.out.println("Passo " + i + " - ");
+            for(j = 0; j < vetor.length; j++)
+            {
+                System.out.print(vetor[j] + " ");
+            }
+            System.out.println(" ");
+            
+        }
+        System.out.println("\n Vetor ordenado");
+        for(int i = 0; i < vetor.length; i++)
+        {
+            System.out.println(" Posição[" + i + "] = " + vetor[i]);
+        }    
+    }   
+}
