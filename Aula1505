@@ -82,3 +82,36 @@ public static void main(String[] args) {
         }
     }
 }
+
+if (n <= 1) return;
+é usada na função mergeSort para parar a recursão quando o vetor (ou subvetor) tem 1 elemento ou nenhum.
+
+✅ Por que isso é importante?
+O algoritmo Merge Sort funciona assim:
+
+Ele divide o vetor em dois subvetores.
+
+Depois, chama recursivamente o mergeSort para ordenar cada metade.
+
+Por fim, junta (merge) essas duas metades ordenadas.
+
+Mas... se o vetor tiver 1 ou 0 elementos, ele já está ordenado. Por isso:
+
+🔍 Significado da linha:
+java
+Copiar
+Editar
+if (n <= 1) return;
+Se o tamanho n do vetor for 1 ou 0, não precisa ordenar, então a função simplesmente retorna e não faz mais nada.
+
+Isso impede chamadas infinitas da função recursiva.
+
+🧠 Exemplo:
+Se o vetor for: {5}
+
+Ele tem apenas 1 elemento (n == 1), então ele já está ordenado.
+
+A função mergeSort vê isso e sai imediatamente com return.
+
+✅ Conclusão:
+Essa linha é essencial para o funcionamento correto e seguro do Merge Sort. Ela serve como caso base da recursão.
