@@ -1,3 +1,4 @@
+
 public static void main(String[] args) {
         int[] vetor = {1, 4, 8, 3, 6, 5, 2, 7};
 
@@ -136,25 +137,25 @@ public static void main(String[] args) {
         }
     }
 
-    // Implementação baseada no pseudocódigo fornecido
-    public static void quickSort(int[] X, int IniVet, int FimVet) {
+    public static void quickSort(int[] vetor, int IniVet, int FimVet) 
+    {
         int i = IniVet;
         int j = FimVet;
-        int pivo = X[(IniVet + FimVet) / 2];
+        int pivo = vetor[(IniVet + FimVet) / 2];
         int aux;
 
-        while (i <= j) {
-            while (X[i] < pivo) {
+        while (i < j) {
+            while (vetor[i] < pivo) {
                 i++;
             }
-            while (X[j] > pivo) {
+            while (vetor[j] > pivo) {
                 j--;
             }
             if (i <= j) {
                 // Troca os elementos
-                aux = X[i];
-                X[i] = X[j];
-                X[j] = aux;
+                aux = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = aux;
                 i++;
                 j--;
             }
@@ -162,10 +163,10 @@ public static void main(String[] args) {
 
         // Chamada recursiva para as partições
         if (j > IniVet) {
-            quickSort(X, IniVet, j);
+            quickSort(vetor, IniVet, j);
         }
         if (i < FimVet) {
-            quickSort(X, i, FimVet);
+            quickSort(vetor, i, FimVet);
         }
     }
 }
