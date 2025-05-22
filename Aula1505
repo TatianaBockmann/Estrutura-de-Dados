@@ -1,5 +1,8 @@
 
-public static void main(String[] args) {
+public class MergeSort 
+{
+    public static void main(String[] args) 
+    {
         int[] vetor = {1, 4, 8, 3, 6, 5, 2, 7};
 
         System.out.println("\nMerge Sort");
@@ -83,6 +86,7 @@ public static void main(String[] args) {
         }
     }
 }
+                
 
 if (n <= 1) return;
 é usada na função mergeSort para parar a recursão quando o vetor (ou subvetor) tem 1 elemento ou nenhum.
@@ -119,7 +123,14 @@ Essa linha é essencial para o funcionamento correto e seguro do Merge Sort. Ela
 
 
 public class OrdenacaoQuickSort {
-public static void main(String[] args) {
+package Aula1505;
+
+/**
+ *
+ * @author 03020975
+ */
+public class QuickSort {
+    public static void main(String[] args) {
         int[] vetor = {1, 4, 8, 3, 6, 5, 2, 7};
 
         System.out.println("\nQuick Sort");
