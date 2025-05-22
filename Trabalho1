@@ -1,14 +1,13 @@
 package Trabalho1;
 
-import java.util.Random;  // Importa a classe Random para gerar números aleatórios
-import java.util.Scanner;  // Importa a classe Scanner para ler entrada do usuário
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
- * @author Tatiana
+ * @author 03020975
  */
 public class Trabalho1 {
-     
     private static Scanner entrada = new Scanner(System.in);
     private static int[] vetor = new int[20];
     // Objeto para gerar números aleatórios
@@ -60,7 +59,7 @@ public class Trabalho1 {
             vetor[i] = Integer.parseInt(entrada.nextLine()); // Lê e armazena no vetor
         }
 
-        System.out.println("Números digitados:");
+        System.out.println("\nNúmeros digitados:");
         for (int i = 0; i < vetor.length; i++) {
             System.out.println("Posição[" + i + "] = " + vetor[i]);
         }
@@ -207,7 +206,8 @@ public class Trabalho1 {
         }
 
         //Troca o menor encontrado com o valor atual
-        menor = copia[indice];//redundante
+        menor = copia[indice];//atribuindo à variável menor menor o valor que está na posição indice do array ou lista chamada copia 
+                               //Ou seja, ela está pegando o elemento que está na posição indice dentro de copia e guardando esse valor em menor
         copia[indice] = copia[i];//move valor atual para onde estava o estava o menor
         copia[i] = menor;//coloca menor na posição correta
     }
