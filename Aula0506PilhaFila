@@ -1,0 +1,100 @@
+package Aula0506;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author 03020975
+ */
+public class Pilhas {
+
+    private String[] pilha;
+    private int topo;
+
+    public Pilhas(int tamanho) {
+        pilha = new String[tamanho];
+        topo = -1;
+    }
+
+    public boolean pilhaVazia() {
+        return topo == -1;
+    }
+
+    public static void main(String[] args) {
+        Scanner ler = new Scanner(System.in);
+        Pilhas pilha = new Pilhas(10);
+        int opcao;
+
+        do {
+            System.out.println("\nEscolha uma operação:");
+            System.out.println("1 - Empilhar");
+            System.out.println("2 - Desempilhar");
+            System.out.println("3 - Mostrar topo");
+            System.out.println("4 - Mostrar pilha");
+            System.out.println("5 - Sair");
+            System.out.print("Opção: ");
+            opcao = ler.nextInt();
+            ler.nextLine(); // Consumir a nova linha
+
+            switch (opcao) {
+                case 1:
+                    System.out.print("Digite o nome para empilhar: ");
+                    String nome = ler.nextLine();
+                    pilha.empilhar(nome);
+                    break;
+                case 2:
+                    pilha.desempilhar();
+                    break;
+                case 3:
+                    pilha.mostrarTopo();
+                    break;
+                case 4:
+                    pilha.mostrarPilha();
+                    break;
+                case 5:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        } while (opcao != 5);
+
+        ler.close();
+    }
+
+    public void empilhar(String nome) {
+        if (topo < pilha.length - 1) {
+            pilha[++topo] = nome;
+            System.out.println("Nome empilhado: " + nome);
+        } else {
+            System.out.println("Pilha cheia! Não é possível empilhar.");
+        }
+    }
+
+    private void desempilhar() {
+        if (!pilhaVazia()) {
+            System.out.println("Nome desempilhado: " + pilha[topo]);
+            pilha[topo--] = null;
+        } else {
+            System.out.println("Pilha vazia! Não há elementos para desempilhar.");
+        }
+    }
+
+    private void mostrarTopo() {
+        if (!pilhaVazia()) {
+            System.out.println("Topo da pilha: " + pilha[topo]);
+        } else {
+            System.out.println("Pilha vazia!");
+        }
+    }
+    public void mostrarPilha() {
+        if (!pilhaVazia()) {
+            System.out.println("Conteúdo da pilha:");
+            for (int i = topo; i >= 0; i--) {
+                System.out.println(pilha[i]);
+            }
+        } else {
+            System.out.println("Pilha vazia!");
+        }
+    }
+}
